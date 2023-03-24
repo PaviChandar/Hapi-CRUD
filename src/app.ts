@@ -1,5 +1,6 @@
 import { Server } from "@hapi/hapi"
 import { routes } from "./routes"
+import "./database"
 
 const init = async () => {
     const server: Server = new Server({

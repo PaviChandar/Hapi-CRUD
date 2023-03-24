@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const hapi_1 = require("@hapi/hapi");
 const routes_1 = require("./routes");
+require("./database");
 const init = () => __awaiter(void 0, void 0, void 0, function* () {
     const server = new hapi_1.Server({
         port: 9000,
