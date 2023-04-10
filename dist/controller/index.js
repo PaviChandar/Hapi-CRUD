@@ -19,8 +19,7 @@ class UserController {
         this.createUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const userSaved = yield userService.createUserService(req.payload);
-                console.log("in user controller : ", userSaved);
-                return res.response({ message: userSaved, userSaved });
+                return res.response({ message: "User saved successfully", userSaved });
             }
             catch (error) {
                 return res.response({ error: error }).code(500);
@@ -38,7 +37,6 @@ class UserController {
         this.getUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const user = yield userService.getUserService(req.params.id);
-                console.log("in get user : ", user);
                 return res.response({ user }).code(200);
             }
             catch (error) {
@@ -48,9 +46,7 @@ class UserController {
         this.updateUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const updateUser = yield userService.updateUserService(req.payload, req.params.id);
-                console.log("updated user : ", updateUser);
-                console.log("user id in update : ", req.params.id);
-                return res.response({ updateUser }).code(200);
+                return res.response({ message: "User updated successfully", updateUser }).code(200);
             }
             catch (error) {
                 return res.response({ error: error }).code(500);
@@ -59,8 +55,7 @@ class UserController {
         this.deleteUser = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const deleteUser = yield userService.deleteUserService(req.params.id);
-                console.log("user id in delete : ", req.params.id);
-                return res.response({ deleteUser }).code(200);
+                return res.response({ message: "User deleted successfully", deleteUser }).code(200);
             }
             catch (error) {
                 return res.response({ error: error }).code(500);

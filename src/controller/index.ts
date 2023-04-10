@@ -7,8 +7,7 @@ class UserController {
     public createUser = async (req: Request, res: ResponseToolkit) => {
         try {
             const userSaved = await userService.createUserService(req.payload)
-            console.log("in user controller : ", userSaved);
-            return res.response({ message: userSaved, userSaved })
+            return res.response({ message: "User saved successfully", userSaved })
 
         } catch (error) {
             return res.response({ error: error }).code(500)
@@ -28,7 +27,6 @@ class UserController {
     public getUser = async (req: Request, res: ResponseToolkit): Promise<ResponseObject> => {
         try {
             const user = await userService.getUserService(req.params.id)
-            console.log("in get user : ", user)
             return res.response({ user }).code(200)
         }
         catch (error) {
@@ -39,9 +37,7 @@ class UserController {
     public updateUser = async (req: Request, res: ResponseToolkit): Promise<ResponseObject> => {
         try {
             const updateUser = await userService.updateUserService(req.payload, req.params.id)
-            console.log("updated user : ", updateUser)
-            console.log("user id in update : ", req.params.id)
-            return res.response({ updateUser }).code(200)
+            return res.response({ message : "User updated successfully", updateUser }).code(200)
         }
         catch (error) {
             return res.response({ error: error }).code(500)
@@ -51,8 +47,7 @@ class UserController {
     public deleteUser = async (req: Request, res: ResponseToolkit): Promise<ResponseObject> => {
         try {
             const deleteUser = await userService.deleteUserService(req.params.id)
-            console.log("user id in delete : ", req.params.id)
-            return res.response({ deleteUser }).code(200)
+            return res.response({ message : "User deleted successfully", deleteUser }).code(200)
         }
         catch (error) {
             return res.response({ error: error }).code(500)

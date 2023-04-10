@@ -14,7 +14,6 @@ class UserRepository {
         this.createUserRepository = (user) => __awaiter(this, void 0, void 0, function* () {
             const dbResult = yield user.save();
             return dbResult;
-            // return "User saved Successfully"
         });
         this.getUsersRepository = (User) => __awaiter(this, void 0, void 0, function* () {
             const dbResult = yield User.find();
@@ -25,7 +24,7 @@ class UserRepository {
             return dbResult;
         });
         this.updateUserRepository = (User, userPayload, userId) => __awaiter(this, void 0, void 0, function* () {
-            const dbResult = yield User.findByIdUpdate(userId, userPayload);
+            const dbResult = yield User.findByIdAndUpdate(userId, userPayload);
             return dbResult;
         });
         this.deleteUserRepository = (User, userId) => __awaiter(this, void 0, void 0, function* () {
